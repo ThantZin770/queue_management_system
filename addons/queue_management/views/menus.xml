@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<odoo>
+
+    <menuitem id="queue_root" name="Queue" sequence="0">
+        <menuitem id="queue_cashier_categ" name="Cashier" action="queue_management.queue_cashier_action" sequence="20"/>
+        <menuitem id="conf_categ" name="Configuration" sequence="30">
+            <menuitem id="queue_counter_categ" name="Counters" action="queue_management.queue_counter_action"/>
+            <menuitem id="contact_categ" name="Contacts" action="contacts.action_contacts"/>
+        </menuitem>
+    </menuitem>
+
+</odoo>
