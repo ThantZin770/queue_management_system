@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+   <record id="queue_reception_view_kanban" model="ir.ui.view">
+    <field name="name">queue.reception.kanban</field>
+    <field name="model">queue.reception</field>
+    <field name="arch" type="xml">
+        <kanban>
+            <field name="id"/>
+            <field name="partner_id"/>
+            <field name="counter_id"/>
+            <templates>
+                <t t-name="card">
+                    <div class="oe_kanban_global_click d-flex flex-row align-items-center p-2" style="min-height: 80px;">
+
+                        <div class="o_kanban_image_left me-3" style="width: 60px; height: 60px;">
+                            <field name="partner_id" widget="image" options="{'preview_image': 'image_128'}" class="w-100 h-100 o_object_fit_cover rounded"/>
+                        </div>
+
+                        <div class="oe_kanban_details d-flex flex-column justify-content-center">
+                            <h4 class="o_kanban_record_title mb-1 font-weight-bold" style="font-size: 16px; color: #212529;">
+                                <field name="name"/>
+                            </h4>
+                            <div class="text-muted" style="font-size: 13px;">
+                                <div class="mb-1"><i class="fa fa-desktop me-1"/> <field name="counter_id"/></div>
+                                <div class="text-primary"><i class="fa fa-user me-1"/> <field name="partner_id"/></div>
+                            </div>
+                        </div>
+
+                    </div>
+                </t>
+            </templates>
+        </kanban>
+    </field>
+</record>
+
+        <record id="queue_reception_view_list" model="ir.ui.view">
+            <field name="name">queue.reception.list</field>
+            <field name="model">queue.reception</field>
+            <field name="arch" type="xml">
+                <list string="Reception">
+                    <field name="name"/>
+                    <field name="partner_id"/>
+                    <field name="counter_id"/>
+                    <field name="state" widget="badge" decoration-info="state == 'draft'" decoration-success="state == 'confirm'"/>
+                </list>
+            </field>
+        </record>
+
+    <record id="queue_reception_view_form" model="ir.ui.view">
+        <field name="name">queue_reception_view_form</field>
+        <field name="model">queue.reception</field>
+        <field name="arch" type="xml">
+            <form string="queue_reception_form">
+                <header>
+                    <button name="action_draft" string="Draft" type="object" class="btn-primary" invisible="state=='draft'"/>
+                    <button name="action_confirm" string="Confirm" type="object" class="btn-success" invisible="state=='confirm'"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                    </div>
+
+                    <group>
+                           <group>
+                                <field name="partner_id"/>
+                           </group>
+                           <group>
+                               <field name="date"/>
+                                <field name="counter_id" options="{'no_create': True}"/>
+
+                           </group>
+                    </group>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+<record id="queue_reception_view_search" model="ir.ui.view">
+    <field name="name">queue_reception_view_search</field>
+    <field name="model">queue.reception</field>
+    <field name="arch" type="xml">
+        <search>
+            <field name="name"/>
+            <field name="partner_id"/>
+            <field name="counter_id"/>
+            <field name="state"/>
+            <filter name="draft" string="draft" domain="[('state', '=', 'draft')]"/>
+            <filter name="confirm" string="confirm" domain="[('state', '=', 'confirm')]"/>
+
+
+        </search>
+    </field>
+</record>
+
+    <record id="queue_reception_action" model="ir.actions.act_window">
+        <field name="name">Reception</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">queue.reception</field>
+        <field name="view_mode">kanban,list,form</field>
+
+
+    </record>
+
+</odoo>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<odoo noupdate="1">
+
+    <record id="seq_account_queue" model="ir.sequence">
+        <field name="name">Queue</field>
+        <field name="code">account.queue</field>
+        <field name="prefix">Q</field>
+        <field name="padding">6</field>
+    </record>
+
+</odoo>

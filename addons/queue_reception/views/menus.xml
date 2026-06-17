@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<odoo>
+
+    <menuitem id="queue_reception_categ" name="Reception" action="queue_reception.queue_reception_action"
+    parent="queue_management.queue_root" sequence="0"/>
+
+</odoo>

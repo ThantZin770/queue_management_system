@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+    <!-- Inherit Form View to Modify it -->
+    <record id="queue_cashier_view_form" model="ir.ui.view">
+        <field name="name">queue_cashier_view_form</field>
+        <field name="model">queue.cashier</field>
+        <field name="inherit_id" ref="queue_management.queue_cashier_view_form"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//field[@name='counter_id']" position="after">
+                <field name="reception_id"/>
+            </xpath>
+
+        </field>
+    </record>
+
+
+</odoo>

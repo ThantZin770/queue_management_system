@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_queue_counter,queue.counter,model_queue_counter,,1,1,1,1
+access_queue_cashier,queue.cashier,model_queue_cashier,,1,1,1,1
+
